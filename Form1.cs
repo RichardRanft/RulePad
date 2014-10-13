@@ -17,9 +17,11 @@ namespace RulePad
     public partial class Form1 : Form
     {
         private String m_d20ScriptHeader;
+        private LicenseManager m_licMan;
         public Form1()
         {
             InitializeComponent();
+            m_licMan = new LicenseManager();
             m_d20ScriptHeader = "//-----------------------------------------------------------------------------" + Environment.NewLine +
                                 "// Copyright (c) 2014 Roostertail Games" + Environment.NewLine +
                                 "//" + Environment.NewLine +
@@ -427,6 +429,11 @@ namespace RulePad
         {
             // figure out how to select and export specific text.  Should be as simple as converting
             // the selected text to XAML and handling it just like the full document.
+        }
+
+        private void selectEditToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            m_licMan.ShowDialog();
         }
     }
 }

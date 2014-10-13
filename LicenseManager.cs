@@ -26,6 +26,11 @@ namespace RulePad
             }
         }
 
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtbLicenseEditor.Clear();
+        }
+
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             sfdSaveLicenseFile.ShowDialog();
@@ -34,6 +39,11 @@ namespace RulePad
         private void addToScriptsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // add license to list of licenses to prefix to output scripts
+        }
+
+        private void doneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LicenseManager.ActiveForm.Hide();
         }
     }
 }

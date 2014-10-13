@@ -39,9 +39,11 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.licensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +51,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.licensesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1183, 24);
@@ -126,6 +129,16 @@
             this.toolStripButton1.ToolTipText = "Export all tables in the current document to TorqueScript";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(106, 22);
+            this.toolStripButton2.Text = "Export selected";
+            this.toolStripButton2.ToolTipText = "Export selected elements to TorqueScript";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Location = new System.Drawing.Point(0, 591);
@@ -143,15 +156,20 @@
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
             // 
-            // toolStripButton2
+            // licensesToolStripMenuItem
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(106, 22);
-            this.toolStripButton2.Text = "Export selected";
-            this.toolStripButton2.ToolTipText = "Export selected elements to TorqueScript";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.licensesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selectEditToolStripMenuItem});
+            this.licensesToolStripMenuItem.Name = "licensesToolStripMenuItem";
+            this.licensesToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.licensesToolStripMenuItem.Text = "Licenses";
+            // 
+            // selectEditToolStripMenuItem
+            // 
+            this.selectEditToolStripMenuItem.Name = "selectEditToolStripMenuItem";
+            this.selectEditToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.selectEditToolStripMenuItem.Text = "Select/Edit";
+            this.selectEditToolStripMenuItem.Click += new System.EventHandler(this.selectEditToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -189,6 +207,8 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripMenuItem licensesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectEditToolStripMenuItem;
     }
 }
 

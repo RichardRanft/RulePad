@@ -40,6 +40,7 @@
             this.rtbLicenseEditor = new System.Windows.Forms.RichTextBox();
             this.ofdOpenLicenseFile = new System.Windows.Forms.OpenFileDialog();
             this.sfdSaveLicenseFile = new System.Windows.Forms.SaveFileDialog();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +74,7 @@
             // licensesToolStripMenuItem
             // 
             this.licensesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.addToScriptsToolStripMenuItem,
@@ -113,6 +115,7 @@
             this.doneToolStripMenuItem.Name = "doneToolStripMenuItem";
             this.doneToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.doneToolStripMenuItem.Text = "Done";
+            this.doneToolStripMenuItem.Click += new System.EventHandler(this.doneToolStripMenuItem_Click);
             // 
             // rtbLicenseEditor
             // 
@@ -126,6 +129,13 @@
             // ofdOpenLicenseFile
             // 
             this.ofdOpenLicenseFile.FileName = "*.txt";
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Text = "&New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // LicenseManager
             // 
@@ -161,5 +171,6 @@
         private System.Windows.Forms.RichTextBox rtbLicenseEditor;
         private System.Windows.Forms.OpenFileDialog ofdOpenLicenseFile;
         private System.Windows.Forms.SaveFileDialog sfdSaveLicenseFile;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
     }
 }
