@@ -82,8 +82,17 @@ namespace RulePad
         private bool LoadRTF()
         {
             // not implemented yet
-            MessageBox.Show("Direct loading RTF files not yet implemented.", "Not Implemented");
-            return false;
+            //MessageBox.Show("Direct loading RTF files not yet implemented.", "Not Implemented");
+            //return false;
+
+            Clear();
+            RichTextBox rtb = new RichTextBox();
+            rtb.LoadFile(m_fileName);
+            for(int i = 0; i < rtb.Lines.GetLength(0); i++)
+            {
+                Add(rtb.Lines[i]);
+            }
+            return true;
         }
 
         private bool LoadText()
