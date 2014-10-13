@@ -18,6 +18,7 @@ namespace RulePad
         LicenseInfo()
         {
             m_fileName = "";
+            m_LicenseName = "";
             m_licenseText = new List<String>();
             m_plainText = false;
         }
@@ -30,7 +31,7 @@ namespace RulePad
             }
             set
             {
-                m_fileName = value;
+                Load(value);
             }
         }
 
@@ -62,26 +63,30 @@ namespace RulePad
 
         public void Load(String fileName)
         {
+            bool success = false;
             m_fileName = fileName;
-            m_LicenseName = StripFileName(fileName);
             if (fileName.Contains(".txt"))
             {
                 m_plainText = true;
-                LoadText();
+                success = LoadText();
             }
             else
             {
                 m_plainText = false;
+                success = LoadRTF();
             }
+            if( success )
+                m_LicenseName = StripFileName(fileName);
         }
 
-        private void LoadRTF()
+        private bool LoadRTF()
         {
             // not implemented yet
             MessageBox.Show("Direct loading RTF files not yet implemented.", "Not Implemented");
+            return false;
         }
 
-        private void LoadText()
+        private bool LoadText()
         {
             Clear();
             StreamReader license = null;
@@ -92,7 +97,7 @@ namespace RulePad
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "File Error");
-                return;
+                return false;
             }
             try
             {
@@ -105,7 +110,10 @@ namespace RulePad
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "File Read Error");
+                return false;
             }
+
+            return true;
         }
 
         private String StripFileName(String name)
