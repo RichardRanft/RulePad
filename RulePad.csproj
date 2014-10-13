@@ -61,6 +61,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LicenseInfo.cs" />
     <Compile Include="LicenseManager.cs">
       <SubType>Form</SubType>
     </Compile>

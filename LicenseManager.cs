@@ -12,6 +12,7 @@ namespace RulePad
 {
     public partial class LicenseManager : Form
     {
+        private List<LicenseInfo> m_licenseList;
         public LicenseManager()
         {
             InitializeComponent();
