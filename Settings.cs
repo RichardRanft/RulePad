@@ -7,7 +7,7 @@ using System.IO;
 
 namespace RulePad
 {
-    class Settings
+    public class Settings
     {
         private String m_settingsPath;
         private String m_listsPath;

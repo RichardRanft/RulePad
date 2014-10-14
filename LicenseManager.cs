@@ -16,14 +16,42 @@ namespace RulePad
         private List<LicenseInfo> m_licenseList;
         private List<String> m_useList;
         private String m_fullLicenseText;
+        private Settings m_settings;
 
         public LicenseManager()
         {
 
             InitializeComponent();
+            m_settings = null;
             m_licenseList = new List<LicenseInfo>();
             m_fullLicenseText = "";
             m_useList = new List<String>();
+        }
+
+        public Settings AppSettings
+        {
+            get
+            {
+                return m_settings;
+            }
+            set
+            {
+                m_settings = value;
+            }
+        }
+
+        public String GetLicenseText()
+        {
+            foreach( String lic in m_useList )
+            {
+                LicenseInfo license = FindLicense(lic);
+                if( license != null )
+                {
+                    m_fullLicenseText += license.LicenseText;
+                }
+            }
+
+            return m_fullLicenseText;
         }
 
         private LicenseInfo FindLicense(String name)

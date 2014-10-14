@@ -24,8 +24,9 @@ namespace RulePad
         public Form1()
         {
             InitializeComponent();
-            m_licMan = new LicenseManager();
             m_settings = new Settings();
+            m_licMan = new LicenseManager();
+            m_licMan.AppSettings = m_settings;
             m_scriptHeader = "";
             m_d20ScriptHeader = "//-----------------------------------------------------------------------------" + Environment.NewLine +
                                 "// Copyright (c) 2014 Roostertail Games" + Environment.NewLine +
