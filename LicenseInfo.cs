@@ -13,6 +13,7 @@ namespace RulePad
         private String m_fileName;
         private String m_LicenseName;
         private List<String> m_licenseText;
+        private String m_fullText;
         private bool m_plainText;
 
         LicenseInfo()
@@ -35,6 +36,14 @@ namespace RulePad
             }
         }
 
+        public String Name
+        {
+            get
+            {
+                return m_LicenseName;
+            }
+        }
+
         public bool IsPlainText
         {
             get
@@ -43,11 +52,19 @@ namespace RulePad
             }
         }
 
-        public List<String> LicenseText
+        public List<String> LicenseTextLines
         {
             get
             {
                 return m_licenseText;
+            }
+        }
+
+        public String LicenseText
+        {
+            get
+            {
+                return m_fullText;
             }
         }
 
@@ -75,16 +92,15 @@ namespace RulePad
                 m_plainText = false;
                 success = LoadRTF();
             }
-            if( success )
+            if (success)
+            {
                 m_LicenseName = StripFileName(fileName);
+                UpdateFullText();
+            }
         }
 
         private bool LoadRTF()
         {
-            // not implemented yet
-            //MessageBox.Show("Direct loading RTF files not yet implemented.", "Not Implemented");
-            //return false;
-
             Clear();
             RichTextBox rtb = new RichTextBox();
             rtb.LoadFile(m_fileName);
@@ -123,6 +139,19 @@ namespace RulePad
             }
 
             return true;
+        }
+
+        private void UpdateFullText()
+        {
+            m_fullText = "";
+            foreach( String line in m_licenseText )
+            {
+                // add comment and newline strings to text line
+                if (line == "")
+                    m_fullText += Environment.NewLine;
+                else
+                    m_fullText += "// " + line + Environment.NewLine;
+            }
         }
 
         private String StripFileName(String name)
