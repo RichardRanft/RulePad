@@ -43,6 +43,8 @@
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tscbUseLicenses = new System.Windows.Forms.ToolStripComboBox();
             this.removeFromScriptsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.saveUseListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -80,6 +82,8 @@
             this.newToolStripMenuItem,
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
+            this.saveUseListToolStripMenuItem,
+            this.toolStripMenuItem2,
             this.addToScriptsToolStripMenuItem,
             this.removeFromScriptsToolStripMenuItem,
             this.toolStripMenuItem1,
@@ -154,6 +158,18 @@
             this.removeFromScriptsToolStripMenuItem.Text = "Remove From Scripts";
             this.removeFromScriptsToolStripMenuItem.Click += new System.EventHandler(this.removeFromScriptsToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(183, 6);
+            // 
+            // saveUseListToolStripMenuItem
+            // 
+            this.saveUseListToolStripMenuItem.Name = "saveUseListToolStripMenuItem";
+            this.saveUseListToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.saveUseListToolStripMenuItem.Text = "Save Use List";
+            this.saveUseListToolStripMenuItem.Click += new System.EventHandler(this.saveUseListToolStripMenuItem_Click);
+            // 
             // LicenseManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,5 +208,7 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeFromScriptsToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox tscbUseLicenses;
+        private System.Windows.Forms.ToolStripMenuItem saveUseListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
     }
 }

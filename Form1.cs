@@ -16,12 +16,17 @@ namespace RulePad
 {
     public partial class Form1 : Form
     {
+        private Settings m_settings;
         private String m_d20ScriptHeader;
+        private String m_scriptHeader;
         private LicenseManager m_licMan;
+
         public Form1()
         {
             InitializeComponent();
             m_licMan = new LicenseManager();
+            m_settings = new Settings();
+            m_scriptHeader = "";
             m_d20ScriptHeader = "//-----------------------------------------------------------------------------" + Environment.NewLine +
                                 "// Copyright (c) 2014 Roostertail Games" + Environment.NewLine +
                                 "//" + Environment.NewLine +

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace RulePad
 {
@@ -18,9 +19,11 @@ namespace RulePad
 
         public LicenseManager()
         {
+
             InitializeComponent();
             m_licenseList = new List<LicenseInfo>();
             m_fullLicenseText = "";
+            m_useList = new List<String>();
         }
 
         private LicenseInfo FindLicense(String name)
@@ -97,6 +100,12 @@ namespace RulePad
             {
                 tscbLicenseList.Items.Add(lInfo.Name);
             }
+        }
+
+        private void saveUseListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // save list
+            
         }
     }
 }
