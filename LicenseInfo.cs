@@ -94,7 +94,7 @@ namespace RulePad
             }
             if (success)
             {
-                m_LicenseName = StripFileName(fileName);
+                m_LicenseName = StripFileName(fileName, false);
                 UpdateFullText();
             }
         }
@@ -154,7 +154,7 @@ namespace RulePad
             }
         }
 
-        private String StripFileName(String name)
+        private String StripFileName(String name, bool stripExt)
         {
             int slashIndex = 0;
             int dotIndex = 0;
@@ -163,11 +163,16 @@ namespace RulePad
                 if (name[i].ToString() == "\\")
                     slashIndex = i + 1;
             }
-            for (int j = 0; j < name.Length; j++)
+            if (stripExt)
             {
-                if (name[j].ToString() == ".")
-                    dotIndex = j;
+                for (int j = 0; j < name.Length; j++)
+                {
+                    if (name[j].ToString() == ".")
+                        dotIndex = j;
+                }
             }
+            else
+                dotIndex = name.Length;
             return name.Substring(slashIndex, dotIndex - slashIndex);
         }
     }

@@ -147,6 +147,7 @@ namespace RulePad
             {
                 LicenseInfo info = new LicenseInfo();
                 info.Load(licFile);
+                m_licenses.Add(info);
             }
 
             foreach( LicenseInfo lInfo in m_licenses )
