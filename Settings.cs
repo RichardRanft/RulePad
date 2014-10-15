@@ -11,6 +11,7 @@ namespace RulePad
     {
         private String m_settingsPath;
         private String m_listsPath;
+        private String m_licensePath;
 
         public String ListPath
         {
@@ -19,12 +20,24 @@ namespace RulePad
                 return m_listsPath;
             }
         }
+        public String LicensePath
+        {
+            get
+            {
+                return m_licensePath;
+            }
+            set
+            {
+                m_licensePath = value;
+            }
+        }
         
         public Settings()
         {
             String myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             m_settingsPath = myDocPath + "\\RulePad";
             m_listsPath = m_settingsPath + "\\Lists";
+            m_licensePath = m_settingsPath + "\\Licenses";
         }
 
         public List<String> GetLicenseLists()
@@ -39,6 +52,7 @@ namespace RulePad
             {
                 Directory.CreateDirectory(myDocPath + "\\RulePad");
                 Directory.CreateDirectory(myDocPath + "\\RulePad\\Lists");
+                Directory.CreateDirectory(myDocPath + "\\RulePad\\Licenses");
             }
 
             IEnumerable<String> lists = Directory.EnumerateFiles(myDocPath + "\\RulePad\\Lists");
@@ -49,6 +63,31 @@ namespace RulePad
             }
 
             return licenseLists;
+        }
+
+        public List<String> GetLicenses()
+        {
+            List<String> licenses = new List<String>();
+            // get a list of all license list files from My Documents/RulePad/Lists
+            String myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            IEnumerable<String> myDocFolders = Directory.EnumerateDirectories(myDocPath);
+
+            if (!myDocFolders.Contains("RulePad"))
+            {
+                Directory.CreateDirectory(myDocPath + "\\RulePad");
+                Directory.CreateDirectory(myDocPath + "\\RulePad\\Lists");
+                Directory.CreateDirectory(myDocPath + "\\RulePad\\Licenses");
+            }
+
+            IEnumerable<String> lists = Directory.EnumerateFiles(myDocPath + "\\RulePad\\Licenses");
+
+            foreach (String fileName in lists)
+            {
+                licenses.Add(fileName);
+            }
+
+            return licenses;
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace RulePad
 {
-    class LicenseInfo
+    public class LicenseInfo
     {
         private String m_fileName;
         private String m_LicenseName;
@@ -16,7 +16,7 @@ namespace RulePad
         private String m_fullText;
         private bool m_plainText;
 
-        LicenseInfo()
+        public LicenseInfo()
         {
             m_fileName = "";
             m_LicenseName = "";

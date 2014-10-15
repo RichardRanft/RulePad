@@ -29,22 +29,25 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tscbLicenseList = new System.Windows.Forms.ToolStripComboBox();
             this.licensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openUseListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveUseListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.addToScriptsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeFromScriptsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.doneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tscbLicenseList = new System.Windows.Forms.ToolStripComboBox();
+            this.tscbUseLicenses = new System.Windows.Forms.ToolStripComboBox();
             this.rtbLicenseEditor = new System.Windows.Forms.RichTextBox();
             this.ofdOpenLicenseFile = new System.Windows.Forms.OpenFileDialog();
             this.sfdSaveLicenseFile = new System.Windows.Forms.SaveFileDialog();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tscbUseLicenses = new System.Windows.Forms.ToolStripComboBox();
-            this.removeFromScriptsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.saveUseListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ofdOpenLicenseList = new System.Windows.Forms.OpenFileDialog();
+            this.sfdSaveLicenseList = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +61,89 @@
             this.menuStrip1.Size = new System.Drawing.Size(747, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // licensesToolStripMenuItem
+            // 
+            this.licensesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.openToolStripMenuItem,
+            this.saveToolStripMenuItem,
+            this.openUseListToolStripMenuItem,
+            this.saveUseListToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.addToScriptsToolStripMenuItem,
+            this.removeFromScriptsToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.doneToolStripMenuItem});
+            this.licensesToolStripMenuItem.Name = "licensesToolStripMenuItem";
+            this.licensesToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.licensesToolStripMenuItem.Text = "Licenses";
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.newToolStripMenuItem.Text = "&New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.openToolStripMenuItem.Text = "&Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.saveToolStripMenuItem.Text = "&Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // openUseListToolStripMenuItem
+            // 
+            this.openUseListToolStripMenuItem.Name = "openUseListToolStripMenuItem";
+            this.openUseListToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.openUseListToolStripMenuItem.Text = "Open Use List";
+            this.openUseListToolStripMenuItem.Click += new System.EventHandler(this.openUseListToolStripMenuItem_Click);
+            // 
+            // saveUseListToolStripMenuItem
+            // 
+            this.saveUseListToolStripMenuItem.Name = "saveUseListToolStripMenuItem";
+            this.saveUseListToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.saveUseListToolStripMenuItem.Text = "Save Use List";
+            this.saveUseListToolStripMenuItem.Click += new System.EventHandler(this.saveUseListToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(183, 6);
+            // 
+            // addToScriptsToolStripMenuItem
+            // 
+            this.addToScriptsToolStripMenuItem.Name = "addToScriptsToolStripMenuItem";
+            this.addToScriptsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.addToScriptsToolStripMenuItem.Text = "Add To Scripts";
+            this.addToScriptsToolStripMenuItem.Click += new System.EventHandler(this.addToScriptsToolStripMenuItem_Click);
+            // 
+            // removeFromScriptsToolStripMenuItem
+            // 
+            this.removeFromScriptsToolStripMenuItem.Name = "removeFromScriptsToolStripMenuItem";
+            this.removeFromScriptsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.removeFromScriptsToolStripMenuItem.Text = "Remove From Scripts";
+            this.removeFromScriptsToolStripMenuItem.Click += new System.EventHandler(this.removeFromScriptsToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(183, 6);
+            // 
+            // doneToolStripMenuItem
+            // 
+            this.doneToolStripMenuItem.Name = "doneToolStripMenuItem";
+            this.doneToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.doneToolStripMenuItem.Text = "Done";
+            this.doneToolStripMenuItem.Click += new System.EventHandler(this.doneToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -76,54 +162,11 @@
             this.tscbLicenseList.Name = "tscbLicenseList";
             this.tscbLicenseList.Size = new System.Drawing.Size(200, 25);
             // 
-            // licensesToolStripMenuItem
+            // tscbUseLicenses
             // 
-            this.licensesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.openToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.saveUseListToolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.addToScriptsToolStripMenuItem,
-            this.removeFromScriptsToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.doneToolStripMenuItem});
-            this.licensesToolStripMenuItem.Name = "licensesToolStripMenuItem";
-            this.licensesToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.licensesToolStripMenuItem.Text = "Licenses";
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.openToolStripMenuItem.Text = "&Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.saveToolStripMenuItem.Text = "&Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
-            // 
-            // addToScriptsToolStripMenuItem
-            // 
-            this.addToScriptsToolStripMenuItem.Name = "addToScriptsToolStripMenuItem";
-            this.addToScriptsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.addToScriptsToolStripMenuItem.Text = "Add To Scripts";
-            this.addToScriptsToolStripMenuItem.Click += new System.EventHandler(this.addToScriptsToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(183, 6);
-            // 
-            // doneToolStripMenuItem
-            // 
-            this.doneToolStripMenuItem.Name = "doneToolStripMenuItem";
-            this.doneToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.doneToolStripMenuItem.Text = "Done";
-            this.doneToolStripMenuItem.Click += new System.EventHandler(this.doneToolStripMenuItem_Click);
+            this.tscbUseLicenses.DropDownWidth = 250;
+            this.tscbUseLicenses.Name = "tscbUseLicenses";
+            this.tscbUseLicenses.Size = new System.Drawing.Size(200, 25);
             // 
             // rtbLicenseEditor
             // 
@@ -136,39 +179,21 @@
             // 
             // ofdOpenLicenseFile
             // 
-            this.ofdOpenLicenseFile.FileName = "*.txt";
+            this.ofdOpenLicenseFile.FileName = "*.rtf";
+            this.ofdOpenLicenseFile.Filter = "Rich Text Files|*rtf|Text files|*.txt";
             // 
-            // newToolStripMenuItem
+            // sfdSaveLicenseFile
             // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.newToolStripMenuItem.Text = "&New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            this.sfdSaveLicenseFile.Filter = "Rich Text Files|*.rtf|Text files|*.txt";
             // 
-            // tscbUseLicenses
+            // ofdOpenLicenseList
             // 
-            this.tscbUseLicenses.DropDownWidth = 250;
-            this.tscbUseLicenses.Name = "tscbUseLicenses";
-            this.tscbUseLicenses.Size = new System.Drawing.Size(200, 25);
+            this.ofdOpenLicenseList.FileName = "*.lst";
+            this.ofdOpenLicenseList.Filter = "\"List files|*.lst\"";
             // 
-            // removeFromScriptsToolStripMenuItem
+            // sfdSaveLicenseList
             // 
-            this.removeFromScriptsToolStripMenuItem.Name = "removeFromScriptsToolStripMenuItem";
-            this.removeFromScriptsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.removeFromScriptsToolStripMenuItem.Text = "Remove From Scripts";
-            this.removeFromScriptsToolStripMenuItem.Click += new System.EventHandler(this.removeFromScriptsToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(183, 6);
-            // 
-            // saveUseListToolStripMenuItem
-            // 
-            this.saveUseListToolStripMenuItem.Name = "saveUseListToolStripMenuItem";
-            this.saveUseListToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.saveUseListToolStripMenuItem.Text = "Save Use List";
-            this.saveUseListToolStripMenuItem.Click += new System.EventHandler(this.saveUseListToolStripMenuItem_Click);
+            this.sfdSaveLicenseList.Filter = "\"List files|*.lst\"";
             // 
             // LicenseManager
             // 
@@ -210,5 +235,8 @@
         private System.Windows.Forms.ToolStripComboBox tscbUseLicenses;
         private System.Windows.Forms.ToolStripMenuItem saveUseListToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem openUseListToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog ofdOpenLicenseList;
+        private System.Windows.Forms.SaveFileDialog sfdSaveLicenseList;
     }
 }

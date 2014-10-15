@@ -13,8 +13,9 @@ namespace RulePad
 {
     public partial class LicenseManager : Form
     {
-        private List<LicenseInfo> m_licenseList;
+        private List<String> m_licenseList;
         private List<String> m_useList;
+        private List<LicenseInfo> m_licenses;
         private String m_fullLicenseText;
         private Settings m_settings;
 
@@ -23,7 +24,8 @@ namespace RulePad
 
             InitializeComponent();
             m_settings = null;
-            m_licenseList = new List<LicenseInfo>();
+            m_licenseList = new List<String>();
+            m_licenses = new List<LicenseInfo>();
             m_fullLicenseText = "";
             m_useList = new List<String>();
         }
@@ -56,7 +58,7 @@ namespace RulePad
 
         private LicenseInfo FindLicense(String name)
         {
-            foreach( LicenseInfo lInfo in m_licenseList )
+            foreach( LicenseInfo lInfo in m_licenses )
             {
                 if (name == lInfo.Name)
                     return lInfo;
@@ -67,10 +69,14 @@ namespace RulePad
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ofdOpenLicenseFile.InitialDirectory = m_settings.LicensePath;
             if(ofdOpenLicenseFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 // load license text for review/edit
-                rtbLicenseEditor.LoadFile(ofdOpenLicenseFile.FileName);
+                if(ofdOpenLicenseFile.FileName.Contains(".txt"))
+                    rtbLicenseEditor.LoadFile(ofdOpenLicenseFile.FileName, RichTextBoxStreamType.PlainText);
+                else
+                    rtbLicenseEditor.LoadFile(ofdOpenLicenseFile.FileName);
             }
         }
 
@@ -81,7 +87,17 @@ namespace RulePad
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sfdSaveLicenseFile.ShowDialog();
+            if (sfdSaveLicenseFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                // save
+                if (sfdSaveLicenseFile.FileName.Contains(".txt"))
+                    rtbLicenseEditor.SaveFile(sfdSaveLicenseFile.FileName, RichTextBoxStreamType.PlainText);
+                else
+                {
+                    sfdSaveLicenseFile.AddExtension = true;
+                    rtbLicenseEditor.SaveFile(sfdSaveLicenseFile.FileName);
+                }
+            }
         }
 
         private void addToScriptsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -115,7 +131,7 @@ namespace RulePad
 
         private void UpdateLicenseText()
         {
-            foreach( LicenseInfo lInfo in m_licenseList )
+            foreach( LicenseInfo lInfo in m_licenses )
             {
                 m_fullLicenseText += lInfo.LicenseText + Environment.NewLine;
             }
@@ -124,9 +140,25 @@ namespace RulePad
         private void LicenseManager_Shown(object sender, EventArgs e)
         {
             tscbLicenseList.Items.Clear();
-            foreach( LicenseInfo lInfo in m_licenseList )
+            m_licenseList = m_settings.GetLicenses();
+
+            m_licenses.Clear();
+            foreach (String licFile in m_licenseList)
+            {
+                LicenseInfo info = new LicenseInfo();
+                info.Load(licFile);
+            }
+
+            foreach( LicenseInfo lInfo in m_licenses )
             {
                 tscbLicenseList.Items.Add(lInfo.Name);
+            }
+
+            tscbUseLicenses.Items.Clear();
+            m_useList = m_settings.GetLicenseLists();
+            foreach( String lName in m_useList )
+            {
+                tscbUseLicenses.Items.Add(lName);
             }
         }
 
@@ -134,6 +166,11 @@ namespace RulePad
         {
             // save list
             
+        }
+
+        private void openUseListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // open list
         }
     }
 }
