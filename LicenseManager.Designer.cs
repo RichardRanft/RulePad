@@ -161,6 +161,7 @@
             this.tscbLicenseList.DropDownWidth = 250;
             this.tscbLicenseList.Name = "tscbLicenseList";
             this.tscbLicenseList.Size = new System.Drawing.Size(200, 25);
+            this.tscbLicenseList.Click += new System.EventHandler(this.tscbLicenseList_Click);
             // 
             // tscbUseLicenses
             // 

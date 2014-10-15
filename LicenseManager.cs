@@ -106,6 +106,12 @@ namespace RulePad
             String name = tscbLicenseList.Items[tscbLicenseList.SelectedIndex].ToString();
             if( name != null )
                 m_useList.Add(name);
+
+            tscbUseLicenses.Items.Clear();
+            foreach(String lic in m_useList)
+            {
+                tscbUseLicenses.Items.Add(lic);
+            }
         }
 
         private void removeFromScriptsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -121,6 +127,12 @@ namespace RulePad
                         m_useList.Remove(name);
                     }
                 }
+            }
+
+            tscbUseLicenses.Items.Clear();
+            foreach (String lic in m_useList)
+            {
+                tscbUseLicenses.Items.Add(lic);
             }
         }
 
@@ -161,6 +173,11 @@ namespace RulePad
             {
                 tscbUseLicenses.Items.Add(lName);
             }
+
+            if(tscbLicenseList.Items.Count > 0)
+                tscbLicenseList.SelectedIndex = 0;
+            if(tscbUseLicenses.Items.Count > 0)
+                tscbUseLicenses.SelectedIndex = 0;
         }
 
         private void saveUseListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -172,6 +189,11 @@ namespace RulePad
         private void openUseListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // open list
+        }
+
+        private void tscbLicenseList_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
