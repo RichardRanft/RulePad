@@ -324,7 +324,7 @@ namespace RulePad
 
         private String parseTableToTorqueScript(String tableText, out String TableName)
         {
-            String scriptText = m_d20ScriptHeader;
+            String scriptText = m_licMan.GetLicenseText();//m_d20ScriptHeader;
             List<String> rows = getRows(tableText);
             String cell1 = rows[0];
             int cellStart = cell1.IndexOf("Run>") + 4;
