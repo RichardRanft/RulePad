@@ -183,12 +183,30 @@ namespace RulePad
         private void saveUseListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // save list
-            
+            if (sfdSaveLicenseFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                using (StreamWriter useList = new StreamWriter(sfdSaveLicenseFile.FileName))
+                {
+                    for(int i = 0; i < tscbUseLicenses.Items.Count; i++)
+                    {
+                        tscbUseLicenses.SelectedIndex = i;
+                        useList.WriteLine(tscbUseLicenses.SelectedText);
+                    }
+                }
+            }
         }
 
         private void openUseListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // open list
+
+            if (ofdOpenLicenseFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                using (StreamReader useList = new StreamReader(ofdOpenLicenseFile.FileName))
+                {
+                    tscbUseLicenses.Items.Add(useList.ReadLine());
+                }
+            }
         }
 
         private void tscbLicenseList_Click(object sender, EventArgs e)
